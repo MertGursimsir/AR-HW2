@@ -267,10 +267,8 @@ public class FileDataReader : MonoBehaviour
     {
         List<Vector3> centeredPoints = new List<Vector3>();
 
-        foreach (Vector3 point in points)
-        {
-            centeredPoints.Add(point - centroid);
-        }
+        foreach (Vector3 point in points) centeredPoints.Add(point - centroid);
+        
 
         return centeredPoints;
     }
@@ -282,29 +280,20 @@ public class FileDataReader : MonoBehaviour
 
         for (int i = 0; i < min; i++)
         {
-            // Apply the rigid transformation to set2
             Vector3 transformedPoint = rotationMatrix.MultiplyPoint3x4(set2[i]) + translationVector;
 
-            // Check if the transformed point is close to the corresponding point in set1
-            if (Vector3.Distance(set1[i], transformedPoint) < threshold)
-            {
-                inlierCount++;
-            }
+            if (Vector3.Distance(set1[i], transformedPoint) < threshold) inlierCount++;
+            
         }
 
         return inlierCount;
     }
 
-    // Calculate the centroid of a set of points
+    //Calculate the centroid of a set of points
     private Vector3 GetCentroid(List<Vector3> points)
     {
         Vector3 sum = Vector3.zero;
-
-        foreach (Vector3 point in points)
-        {
-            sum += point;
-        }
-
+        foreach (Vector3 point in points) sum += point;
         return sum / points.Count;
     }
 
