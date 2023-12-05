@@ -3,13 +3,19 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     public float sensitivity = 2.0f; // Mouse sensitivity
-
+    public float speed = 5f;
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
     void Update()
     {
         HandleInput();
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
+        transform.Translate(movement * speed * Time.deltaTime);
+
     }
 
     void HandleInput()

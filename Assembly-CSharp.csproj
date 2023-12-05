@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\Reader.cs" />
+    <Compile Include="Assets\Scripts\Logic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Data\file1.txt" />
